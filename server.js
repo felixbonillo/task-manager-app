@@ -16,6 +16,13 @@ app.use(express.static(patch.join(__dirname, 'public'))); // Servir archivos est
 //Configurar rutas definidas en taskRouter seran prefijadas por '/api/tasks'
 app.use('/api/tasks', tasksRouter);
 
+// --- Manejo de la ruta principal para servir index.html ---
+//Si se va a la raiz del servidor, enviamos el archivo index.html
+
+app.get('/', (req, res) => {
+  res.sendFile(patch.join(__dirname, 'public', 'index.html'));
+});
+
 
 // Iniciar el servidor
 

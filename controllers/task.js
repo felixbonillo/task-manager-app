@@ -1,5 +1,5 @@
 //Importamos el modulo de crypto para generar IDs unicos
-const cryto = require('node:crypto');
+const crypto = require('node:crypto');
 
 //Importar los esquemas de validacion que definimos en schemas/task.js
 
