@@ -1,0 +1,2 @@
+### Metodo GET para todas las tareas
+GET http://localhost:3000/api/tasks

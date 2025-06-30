@@ -1,5 +1,4 @@
-import { error } from 'node:console';
-
+//Importamos el modulo de crypto para generar IDs unicos
 const cryto = require('node:crypto');
 
 //Importar los esquemas de validacion que definimos en schemas/task.js
@@ -97,13 +96,19 @@ function deleteTask(req, res) {
     res.status(204).send(); //Devolvemos un 204 No Content si la eliminacion fue exitosa
 }
 
+function deleteAllTasks(req, res) {
+    tareas = []; //Limpiamos el array de tareas
+    res.status(204).send(); //Devolvemos un 204 No Content si la eliminacion fue exitosa
+}
+
 // Exportamos las funciones del controlador para usarlas en las rutas
 module.exports = {
     getAllTasks,
     createTask,
     getTaskById,
     updateTask,
-    deleteTask
+    deleteTask,
+    deleteAllTasks
 }
 
 
