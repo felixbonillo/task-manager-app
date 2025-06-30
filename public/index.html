@@ -1,20 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de tareas MERN</title>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de tareas Full-Stack</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <h1 class="text-4xl font-bold text-blue-700">Mi gestor de tareas</h1>
-    <p class="mt-4 text-lg text-gray-800">Hola desde el Frontend</p>
-    
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+      <h1 class="text-3xl font-extrabikd text-center text-blue-700 mb-6">
+        Mi Gestir de tareas
+      </h1>
 
+      <div id="notification-area" class="mb-4 text-center"></div>
 
+      <form id="task-form" class="mb-6 space-y-4"></form>
 
+      <div id="task-container" class="space-y-3"></div>
+
+      <div
+        class="mt-6 text-center"
+        id="clear-all-container"
+        style="display: none"
+      ></div>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
