@@ -6,13 +6,13 @@ const crypto = require('node:crypto');
 const { taskSchema, partialTaskSchema } = require('../schemas/task');
 
 // Simulamos una base de datos en memoria
-const tareas = [];
+let tareas = [];
 
 // ---Logica del controlador para cada operacion CRUD---
 
 // 1. Obtener todas las tareas
 function getAllTasks(req, res) {
-    res.json(task)
+    res.json(tareas); //Devolvemos todas las tareas almacenadas en memoria
 }
 
 // 2. Crear una nueva tarea
@@ -22,7 +22,10 @@ function createTask(req, res) {
 
     if(result.error) {
         //Si la validacion falla, enviamos un error 400 con los detalles (El error 400 es solicitud incorrecta)
-        return res.result.status(400).json({ errors : result.error.errors });
+        return res.status(400).json({
+            message: 'Error de validación',
+            errors: JSON.parse(result.error.message), //Convertimos el error a un objeto JSON para enviarlo
+        });
     }
 
     //Si la validacion es correcta, creamos una nueva tarea
@@ -88,7 +91,7 @@ function deleteTask(req, res) {
     const initialLength = tareas.length; //Guardamos la cantidad inicial de tareas
 
     //Filtramos el array para crear uno nuevo sin la tarea a eliminar
-    tareas = tareas.filter(tarea => tarea.id !== id);
+     tareas = tareas.filter(tarea => tarea.id !== id);
 
     if (tareas.length === initialLength) {
         return res.status(404).json({ error: 'Tarea no encontrada' }); //Error 404 si no se elimino ninguna tarea

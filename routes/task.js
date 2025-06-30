@@ -11,3 +11,5 @@ router.patch('/:id', taskController.updateTask); // Actualizar parcialmente una 
 router.delete('/:id', taskController.deleteTask); // Eliminar una tarea
 router.delete('/', taskController.deleteAllTasks); // Eliminar todas las tareas
 
+module.exports = router;
+

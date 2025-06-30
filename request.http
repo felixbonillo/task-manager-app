@@ -1,2 +1,48 @@
-### Metodo GET para todas las tareas
+### GET all tasks
 GET http://localhost:3000/api/tasks
+Content-Type: application/json
+
+### POST create a new task (Valid)
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Aprender Express y Node.js",
+  "description": "Dominar el backend con API RESTful."
+}
+
+### POST create a new task (Validation Error - Missing title)
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "description": "Esta tarea no tiene título."
+}
+
+### GET task by ID (replace with a real ID after POSTing)
+GET http://localhost:3000/api/tasks/bd91a366-f7f7-4f4b-b155-973b70733194
+Content-Type: application/json
+
+### PATCH update a task (replace with a real ID and update 'completed')
+PATCH http://localhost:3000/api/tasks/bd91a366-f7f7-4f4b-b155-973b70733194
+Content-Type: application/json
+
+{
+  "completed": true
+}
+
+### PATCH update a task (Validation Error - Invalid type for 'completed')
+PATCH http://localhost:3000/api/tasks/bd91a366-f7f7-4f4b-b155-973b70733194
+Content-Type: application/json
+
+{
+  "completed": "no es un booleano"
+}
+
+### DELETE a task (replace with a real ID)
+DELETE http://localhost:3000/api/tasks/8564f1e0-115e-47f5-b575-dffcd95a1d1c
+Content-Type: application/json
+
+### DELETE all tasks
+DELETE http://localhost:3000/api/tasks
+Content-Type: application/json
