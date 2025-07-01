@@ -1,4 +1,5 @@
 📝 Tu Organizador Personal de Tareas (Full-Stack)
+
 🚀 Descripción del Proyecto
 "Tu Organizador Personal de Tareas" es una aplicación web full-stack minimalista y eficiente diseñada para ayudarte a gestionar tus tareas diarias de forma sencilla. Permite a los usuarios añadir, marcar como completadas, y eliminar tareas, proporcionando una experiencia de usuario fluida y visualmente atractiva.
 
@@ -26,27 +27,15 @@ Validación de Datos Robusta: Asegura la integridad de los datos enviados al bac
 🛠️ Tecnologías Utilizadas
 Este proyecto está construido con un stack moderno y eficiente:
 
-Categoría
-
-Tecnología
-
-Logo
-
-Descripción
 
 Backend
 
 Node.js
 
-
-
 Entorno de ejecución de JavaScript del lado del servidor.
 
 
-
 Express.js
-
-
 
 Framework web rápido y minimalista para Node.js, utilizado para construir la API RESTful.
 
@@ -54,15 +43,11 @@ Framework web rápido y minimalista para Node.js, utilizado para construir la AP
 
 Zod
 
-
-
 Librería de declaración y validación de esquemas TypeScript/JavaScript, utilizada para asegurar la integridad de los datos de entrada.
 
 Frontend
 
 JavaScript (Vanilla)
-
-
 
 El lenguaje de programación principal del lado del cliente, utilizado para la interactividad y la lógica del DOM.
 
@@ -70,23 +55,16 @@ El lenguaje de programación principal del lado del cliente, utilizado para la i
 
 Fetch API
 
-
-
 API moderna para realizar peticiones HTTP (comunicación con el backend).
 
 
-
 HTML5
-
-
 
 Lenguaje de marcado para la estructura de la página web.
 
 
 
 Tailwind CSS
-
-
 
 Framework CSS de primera utilidad para construir diseños personalizados y responsivos directamente en el HTML.
 
@@ -102,10 +80,8 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
 
 Clona el repositorio:
 
-git clone [URL_DE_TU_REPOSITORIO]
+git clone https://github.com/felixbonillo/task-manager-app.git
 cd task-manager-app
-
-(Reemplaza [URL_DE_TU_REPOSITORIO] con la URL real de tu repositorio de GitHub.)
 
 Instala las dependencias del backend:
 
