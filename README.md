@@ -105,6 +105,8 @@ http://localhost:3000
 
 ¡Ya puedes empezar a usar "Tu Organizador Personal de Tareas"!
 
+
+
 📁 Estructura del Proyecto
 La estructura del proyecto sigue una arquitectura modular para una mejor organización y mantenibilidad:
 
@@ -122,6 +124,8 @@ task-manager-app/
 ├── server.js               # Punto de entrada principal del servidor Express
 ├── package.json            # Metadatos del proyecto y dependencias
 └── README.md               # Este archivo
+
+
 
 ➡️ Próximos Pasos y Hoja de Ruta
 Este proyecto es el punto de partida de una ambiciosa hoja de ruta para dominar el desarrollo Full-Stack. Los siguientes pasos incluyen:
