@@ -3,6 +3,18 @@
 const express = require('express');
 const patch = require('node:path');
 const tasksRouter = require('./routes/task');
+const cors = require('cors');
+
+//Configuracion de cors
+
+const corsOptions = {
+  origin: 'https://taskmanagerfull.netlify.app/', // Solo permitir solicitudes desde este origen
+  methods: 'GET, POST, DELETE, PATCH', // Métodos permitidos
+  credentials: true, // Permitir credenciales (cookies, autenticación HTTP)
+  optionsSuccessStatus: 204 // Para navegadores antiguos que no manejan bien el código de estado 204
+};
+
+app.use(cors(corsOptions)); // Aplicar CORS a todas las rutas
 
 
 const app = express();
