@@ -16,7 +16,7 @@ const editTitleInput = document.getElementById("edit-title");
 const editDescriptionInput = document.getElementById("edit-description");
 
 // URL base de tu API RESTful
-const API_URL = "http://localhost:3000/api/tasks";
+const API_URL = "https://taskmanagerfull.onrender.com/api/tasks";
 
 // --- Función para mostrar Notificaciones ---
 function showNotification(message, type = "success") {
