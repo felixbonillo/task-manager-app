@@ -1,5 +1,4 @@
-//Este es el script que se encargará de manejar la lógica del frontend de nuestra aplicación de tareas
-//Primero haremos referencia al elemento del DOM
+//Referencias al formulario de tareas 
 const taskForm = document.getElementById("task-form");
 const titleInput = document.getElementById("title");
 const descriptionInput = document.getElementById("description");
@@ -7,6 +6,14 @@ const tasksContainer = document.getElementById("tasks-container");
 const clearAllContainer = document.getElementById("clear-all-container");
 const clearAllBtn = document.getElementById("clear-all-btn");
 const notificationArea = document.getElementById("notification-area");
+
+// Referencias a elementos  del modal de edicion
+const editModal = document.getElementById("edit-modal");
+const closeEditModalBtn = document.getElementById("close-edit-modal");
+const editTaskForm = document.getElementById("edit-task-form");
+const editTaskIdInput = document.getElementById("edit-task-id");
+const editTitleInput = document.getElementById("edit-title");
+const editDescriptionInput = document.getElementById("edit-description");
 
 // URL base de tu API RESTful
 const API_URL = "http://localhost:3000/api/tasks";
@@ -225,9 +232,9 @@ tasksContainer.addEventListener("click", async (event) => {
       await toggleTaskComplete(taskId);
     } else if (action === "delete") {
       await deleteTaskById(taskId);
-    }else if (action === 'edit') {
-        //Logica boton implementar
-        await openEditModal(taskId);
+    } else if (action === "edit") {
+      //Logica boton implementar
+      await openEditModal(taskId);
     }
   }
 });
@@ -302,6 +309,86 @@ async function deleteTaskById(taskId) {
     showNotification("Error al eliminar la tarea.", "error");
   }
 }
+
+// --- NUEVA FUNCIÓN para abrir el modal de edición ---
+async function openEditModal(taskId) {
+    try{
+        //Obtener los datos de la tarea especifica desde el backend
+        const response = await fetch(`${API_URL}/${taskId}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const task = await response.json();
+
+        //Rellenar los campos del modal con los datos de la tarea
+        editTaskIdInput.value = task.id; //Guarda el id de la tarea en el campo oculto
+        editTitleInput.value = task.title;
+        editDescriptionInput.value = task.description;
+
+        //Mostrar el modal
+        editModal.classList.remove("hidden");
+    } catch (error) {
+        console.error("Error al abrir el modal de edición:", error);
+        showNotification("Error al cargar la tarea para editar.", "error");
+    }
+}
+
+// --- NUEVA FUNCIÓN para cerrar el modal de edición ---
+function closeEditModal() {
+    editModal.classList.add("hidden"); // Ocultar el modal de edición
+    editTaskForm.reset(); // Limpiar el formulario de edición al cerrar
+}
+
+//Funcion para manejar el envio del formulario de edicion
+async function handleEditTask(e) {
+    e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+
+    const taskId = editTaskIdInput.value;
+    const newTitle = editTitleInput.value.trim();
+    const newDescription = editDescriptionInput.value.trim();
+
+    if (!newTitle) {
+        showNotification("El título de la tarea no puede estar vacío.", "error");
+        return;
+    }
+
+    try{
+        //Realizar la petición PATCH al backend para actualizar la tarea
+        const response = await fetch(`${API_URL}/${taskId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ title: newTitle, description: newDescription }),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            showNotification(
+                `Error al actualizar: ${errorData.message || "Error desconocido"}`,
+                "error"
+            );
+            return;
+        }
+
+        //Cerral modal y recargar tareas despues de actualizar
+        showNotification("¡Tarea actualizada exitosamente!", "success");
+        closeEditModal()
+        fetchAndRenderTasks(); // <-- LLAMADA CRUCIAL: Recargar tareas después de actualizar
+
+    } catch (error) {
+        console.error("Error al actualizar la tarea:", error);
+        showNotification("Error al actualizar la tarea.", "error");
+        return;
+    }
+}
+
+
+// Cerrar el modal de edición
+closeEditModalBtn.addEventListener('click', closeEditModalBtn)
+
+// Manejar el envío del formulario de edición
+editTaskForm.addEventListener("submit", handleEditTask);
 
 // --- LLAMADA INICIAL: Cargar tareas cuando la página se carga ---
 document.addEventListener("DOMContentLoaded", fetchAndRenderTasks);
