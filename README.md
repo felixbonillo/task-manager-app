@@ -1,10 +1,13 @@
 📝 Tu Organizador Personal de Tareas (Full-Stack)
+
 🚀 Descripción del Proyecto
+
 "Tu Organizador Personal de Tareas" es una aplicación web full-stack minimalista y eficiente diseñada para ayudarte a gestionar tus tareas diarias de forma sencilla. Permite a los usuarios añadir, marcar como completadas, y eliminar tareas, proporcionando una experiencia de usuario fluida y visualmente atractiva.
 
 Este proyecto ha sido desarrollado siguiendo principios de arquitectura limpia y separación de responsabilidades en el backend, y un enfoque moderno y responsive (mobile-first) en el frontend, utilizando las últimas tendencias en diseño y desarrollo web.
 
 ✨ Características Principales
+
 Gestión Completa de Tareas (CRUD):
 
 Crear: Añade nuevas tareas con título y descripción.
@@ -103,6 +106,7 @@ Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina local:
 Clona el repositorio:
 
 git clone https://github.com/felixbonillo/task-manager-app.git
+
 cd task-manager-app
 
 Instala las dependencias del backend:
@@ -128,7 +132,10 @@ http://localhost:3000
 ¡Ya puedes empezar a usar "Tu Organizador Personal de Tareas"!
 
 📁 Estructura del Proyecto
+
+
 La estructura del proyecto sigue una arquitectura modular para una mejor organización y mantenibilidad:
+
 
 task-manager-app/
 ├── public/                 # Archivos del frontend (HTML, CSS, JS del navegador)
@@ -146,19 +153,25 @@ task-manager-app/
 └── README.md               # Este archivo
 
 ➡️ Próximos Pasos y Hoja de Ruta
+
 Este proyecto es el punto de partida de una ambiciosa hoja de ruta para dominar el desarrollo Full-Stack. Los siguientes pasos incluyen:
+
 
 Refuerzo de JavaScript (Vanilla): Ejercicios prácticos en manipulación del DOM, asincronía, promesas y métodos de arrays, consumiendo APIs externas.
 
+
 Proyectos de Portafolio con JS Vanilla: Construcción de una aplicación de películas/libros, una aplicación del clima, un cuestionario interactivo y un dashboard simple, enfocados en la dificultad de cliente real.
 
+
 Desarrollo Frontend con React.js: Refactorización de esta aplicación de tareas a React, y creación de sistemas de ventas, inventario y dashboards interactivos con librerías avanzadas (Framer Motion, Shadcn UI, Recharts, etc.).
+
 
 Profundización en Backend: Integración de bases de datos reales (MongoDB con Mongoose), implementación de autenticación y autorización (JWT, Bcrypt).
 
 Herramientas de Producción: Contenerización con Docker y estrategias de despliegue.
 
 📞 Contacto
+
 Si tienes alguna pregunta o sugerencia, no dudes en contactarme:
 
 Nombre: Felix Bonillo
